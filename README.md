@@ -1,11 +1,7 @@
-# VINU
+# VINU - Controle de Vinhos
 
 # Projeto C#
 
-Projeto a ser desenvolvido para as aulas de CSharp
-
-
-TODO: Desenvolver esboço do projeto
 
 ## O Projeto
 
@@ -20,6 +16,7 @@ TODO: Desenvolver esboço do projeto
 	* Leitura
 	* Atualização
 	* Exclusão
+
 *Relatórios dos vinhos
   * por valor
   * por tipo de uva
