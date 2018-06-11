@@ -7,19 +7,21 @@ using System.Threading.Tasks;
 
 namespace Models
 {
-    class Vinho
-    {
-        [Key]
-        public int VinhoID { get; set; }
+	class Vinho
+	{
+		[Key]
+		public int VinhoID { get; set; }
 
-        [Required]
-        public string NomeVinho { get; set; }
+		[Required]
+		public string NomeVinho { get; set; }
 
-        [Required]
-        public double Valor { get; set; }
+		[Required]
+		public double Valor { get; set; }
 
-        public float Score { get; set; }
-        
-        public List<AtributosVinho> atributos { get; set; }
-    }
+		public float Score { get; set; }
+
+		public List<AtributosVinho> Atributos { get; set; }
+	}
+    
 }
+    
