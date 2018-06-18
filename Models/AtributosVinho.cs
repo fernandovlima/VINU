@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Models
 {
-    class AtributosVinho
+    public class AtributosVinho
     {
         [Key]
         public int AtributosVinhoID { get; set; }
