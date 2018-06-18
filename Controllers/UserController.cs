@@ -54,9 +54,7 @@ namespace Controllers
         }
 
         public void AddWineToList(int userId, Vinho vinho)
-        {
-            User user = SearchById(userId);
-            user.VinhosFavoritos = (ICollection<Vinho>) context.FavoriteWines.Where(f => f.UserID.UserID == userId).ToList();
+        {           
 
             if (context.FavoriteWines.Find(userId, vinho.VinhoID) != null)
             {
@@ -77,11 +75,26 @@ namespace Controllers
 
         public void DeleteAllWinesFromList(int userId)
         {
-            User user = SearchById(userId);
             var favorites = context.FavoriteWines.Where(f => f.UserID.UserID == userId).ToList();
             foreach (var vinho in favorites)
             {
                 context.FavoriteWines.Remove(vinho);
+            }
+
+            context.SaveChanges();
+        }
+
+        public ICollection<Vinho> ListAllFavoriteWinesByUser(int userId)
+        {
+            User user = SearchById(userId);
+            user.VinhosFavoritos = (ICollection<Vinho>) context.FavoriteWines.Where(f => f.UserID.UserID == userId).ToList();
+            if(user.VinhosFavoritos != null)
+            {
+                return user.VinhosFavoritos;
+            }
+            else
+            {
+                return null;
             }
         }
     }
