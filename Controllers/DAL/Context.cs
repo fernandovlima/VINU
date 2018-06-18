@@ -15,6 +15,8 @@ namespace Controllers.DAL
 
         public DbSet<Vinho> Wines { set; get; }
 
+        public DbSet<FavoriteWines> FavoriteWines { set; get; }
+
         public DbSet<AtributosVinho> Attributes { set; get; }
 
     }

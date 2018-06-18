@@ -16,32 +16,73 @@ namespace Controllers
 
         public void AddNew(User entity)
         {
-            throw new NotImplementedException();
+            context.Users.Add(entity);
+            context.SaveChanges();
         }
 
-        public void Delet(int id) 
+        public void Delete(int id) 
         {
-            throw new NotImplementedException();
+            User user = SearchById(id); //busca usuário pela ID
+
+            if (user != null)
+            {
+                context.Users.Remove(user); //Remove usuário vinculado a id informada
+                context.SaveChanges(); //salva as alterações
+            }
+
         }
 
         public void Edit(User entity)
         {
-            throw new NotImplementedException();
+            context.Entry(entity).State = System.Data.Entity.EntityState.Modified;
+            context.SaveChanges();
         }
 
         public ICollection<User> ListAll()
         {
-            throw new NotImplementedException();
+            return context.Users.ToList();
         }
 
         public ICollection<User> ListByName(string name)
         {
-            throw new NotImplementedException();
+            return context.Users.Where(user => user.Nome == name).ToList();
         }
 
         public User SearchById(int id)
         {
-            throw new NotImplementedException();
+            return context.Users.Find(id);
+        }
+
+        public void AddWineToList(int userId, Vinho vinho)
+        {
+            User user = SearchById(userId);
+            user.VinhosFavoritos = (ICollection<Vinho>) context.FavoriteWines.Where(f => f.UserID.UserID == userId).ToList();
+
+            if (context.FavoriteWines.Find(userId, vinho.VinhoID) != null)
+            {
+                FavoriteWines favorite = new FavoriteWines(userId, vinho.VinhoID);
+                context.FavoriteWines.Add(favorite);
+                context.SaveChanges();
+            }
+        }
+
+        public void DeleteWineFromList(int userId, int vinhoId)
+        {
+
+            FavoriteWines favorite = new FavoriteWines(userId, vinhoId);
+            context.FavoriteWines.Remove(favorite);
+            context.SaveChanges();
+
+        }
+
+        public void DeleteAllWinesFromList(int userId)
+        {
+            User user = SearchById(userId);
+            var favorites = context.FavoriteWines.Where(f => f.UserID.UserID == userId).ToList();
+            foreach (var vinho in favorites)
+            {
+                context.FavoriteWines.Remove(vinho);
+            }
         }
     }
 }
