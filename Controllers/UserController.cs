@@ -56,7 +56,7 @@ namespace Controllers
         public void AddWineToList(int userId, Vinho vinho)
         {           
 
-            if (context.FavoriteWines.Find(userId, vinho.VinhoID) != null)
+            if (context.FavoriteWines.Find(userId, vinho.VinhoID) == null)
             {
                 FavoriteWines favorite = new FavoriteWines(userId, vinho.VinhoID);
                 context.FavoriteWines.Add(favorite);
@@ -84,10 +84,10 @@ namespace Controllers
             context.SaveChanges();
         }
 
-        public ICollection<Vinho> ListAllFavoriteWinesByUser(int userId)
+        public ICollection<FavoriteWines> ListAllFavoriteWinesByUser(int userId)
         {
             User user = SearchById(userId);
-            user.VinhosFavoritos = (ICollection<Vinho>) context.FavoriteWines.Where(f => f.UserID.UserID == userId).ToList();
+            user.VinhosFavoritos = context.FavoriteWines.Where(f => f.UserID.UserID == userId).ToList();
             if(user.VinhosFavoritos != null)
             {
                 return user.VinhosFavoritos;
