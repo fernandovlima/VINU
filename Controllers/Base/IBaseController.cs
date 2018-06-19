@@ -9,7 +9,7 @@ namespace Controllers.Base
         ICollection<T> ListByName(string name);
         T SearchById(int id);
         void Edit(T entity);
-        void Delet(int id); 
+        void Delete(int id); 
 
     }
 }
