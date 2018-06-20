@@ -1,23 +1,28 @@
-﻿<Properties StartupConfiguration="{DFDE6129-179B-44C5-81B3-AA54F9B1E60A}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Models/AtributosVinho.cs">
+﻿<Properties StartupConfiguration="{05528624-DC23-4BB7-AB22-3076684CD0D7}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Controllers/AtributosVinhoController.cs">
     <Files>
-      <File FileName="Models/User.cs" Line="27" Column="3" />
-      <File FileName="Models/Vinho.cs" Line="24" Column="3" />
-      <File FileName="Models/AtributosVinho.cs" Line="19" Column="11" />
+      <File FileName="Controllers/UserController.cs" Line="48" Column="34" />
+      <File FileName="Controllers/VinhoController.cs" Line="50" Column="30" />
+      <File FileName="Controllers/AtributosVinhoController.cs" Line="50" Column="76" />
+      <File FileName="Controllers/Base/IBaseController.cs" Line="16" Column="1" />
+      <File FileName="Models/AtributosVinho.cs" Line="16" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Vinu" expanded="True">
-            <Node name="Controllers" expanded="True" />
-            <Node name="Models" expanded="True">
-              <Node name="AtributosVinho.cs" selected="True" />
+            <Node name="Controllers" expanded="True">
+              <Node name="Base" expanded="True" />
+              <Node name="DAL" expanded="True" />
+              <Node name="AtributosVinhoController.cs" selected="True" />
             </Node>
+            <Node name="Models" expanded="True" />
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.Controllers PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.ItemProperties.Models PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
