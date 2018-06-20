@@ -17,6 +17,6 @@ namespace Models
         [Required] 
         public string Nome { get; set; }
 
-        public ICollection<Vinho> VinhosFavoritos { get; set; } 
+        public ICollection<FavoriteWines> VinhosFavoritos { get; set; } 
     }
 }
