@@ -11,5 +11,7 @@ namespace Models
 
         public string ValorAtr { get; set; }
 
+		public string VinhoID { get; set; }
+
     }
 }
