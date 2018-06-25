@@ -23,6 +23,19 @@ namespace WpfViews
         public MainWindow()
         {
             InitializeComponent();
+          //  usersTab.Content = Application.LoadComponent(new Uri("assemlyName;component/WelcomeView.xaml", UriKind.Relative));
+
         }
+        private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (welcomeTab != null && welcomeTab.IsSelected) { }
+                // do your staff
+            if (usersTab != null && usersTab.IsSelected) { }
+                    // do your staff
+            if (vinhosTab != null && vinhosTab.IsSelected) { }
+            // do your staff
+        }
+
+
     }
 }
