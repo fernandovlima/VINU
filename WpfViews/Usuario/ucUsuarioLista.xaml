@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="WpfViews.Usuario.ucUsuarioLista"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfViews.Usuario"
+             mc:Ignorable="d" d:DesignWidth="740" HorizontalAlignment="Left">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="4*" />
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="4*" />
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0" Height="400" Margin="0" VerticalAlignment="Top">
+            <ScrollViewer Height="239" VerticalAlignment="Top" >
+                <DataGrid Name="DGListaUsuarios" 
+                          ItemsSource="{Binding ListaUsers}"
+                          AutoGenerateColumns="False"
+                          SelectionMode="Single" 
+                          SelectionChanged="DGListaUsuarios_SelectionChanged"
+                          CanUserAddRows="false">
+
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="#ID"
+                      Binding="{Binding UserID}" Width="2*" IsReadOnly="true" />
+                        <DataGridTextColumn Header="Nome"
+                      Binding="{Binding Nome}" Width="8*" IsReadOnly="true" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </ScrollViewer>
+            <Button Content="Deletar" Name="btnDeletar" Padding="0,5" Background="Maroon" Foreground="White" Click="btnDeletar_Click"/>
+            <Button x:Name="btnAtualizaLista" Content="Atualizar Lista" Padding="0,5" Margin="0, 15, 0, 0" Click="btnAtualizaLista_Click"/>
+        </StackPanel>
+        <StackPanel Grid.Column="1">
+            <Label Content="#ID" HorizontalAlignment="Right" Margin="10,0" />
+            <Label Content="Nome" HorizontalAlignment="Right" Margin="10,0" />
+            <Label Content="Login" HorizontalAlignment="Right" Margin="10,0" />
+            <Label Content="Senha" HorizontalAlignment="Right" Margin="10,0" />
+        </StackPanel>
+        <StackPanel Grid.Column="2">
+            <TextBlock Name="txtIdUpdate" />
+            <TextBox Name="txtNomeUpdate" Margin="0,3" Width="200" HorizontalAlignment="Left" />
+            <TextBox Name="txtLoginUpdate" Margin="0,3" Width="200" HorizontalAlignment="Left"  />
+            <PasswordBox Name="txtPasswordUpdate" Margin="0,3" Width="200" HorizontalAlignment="Left"  />
+            <Button Name="btnUserUpdate" Content="Atualizar" Background="DarkOrange" Foreground="LightGray" IsEnabled="False" Click="btnUserUpdate_Click" Margin="0,3" />
+        </StackPanel>
+        
+         </Grid>
+</UserControl>

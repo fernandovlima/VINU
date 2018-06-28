@@ -1,0 +1,55 @@
+﻿<UserControl x:Class="WpfViews.ucWelcome"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfViews"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Background="#222" Margin="-4">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*" />
+            <ColumnDefinition Width="0.5*" />
+            <ColumnDefinition Width="3*" />
+            <ColumnDefinition Width="0.5*" />
+            <ColumnDefinition Width="3*" />
+        </Grid.ColumnDefinitions>
+
+        <Canvas Grid.Column="0" HorizontalAlignment="Center" Height="341" Margin="0,10,0.4,0" VerticalAlignment="Top" Width="230" Cursor="Hand">
+            <Canvas.Background>
+                <SolidColorBrush Color="White"/>
+            </Canvas.Background>
+            <Button Name="btnUsuarios"  Style="{StaticResource btnAreas}" Click="btnUsuarios_Click"/>
+            <Image Source=".\Imgs\drunked.png" Style="{StaticResource imgArea}"
+                               Canvas.Left="57"/>
+            <TextBlock Style="{StaticResource txtTitle}" Text="Usuários" />
+            <TextBox Style="{StaticResource txtDescricaoBlack}"
+                                 Text="Nesta área você poderá gerenciar os usuários, cadastrar novos, listar e deletar!"
+                                 />
+        </Canvas>
+        <Canvas Grid.Column="2" HorizontalAlignment="Left" Height="341" Margin="0.2,10,0,0" VerticalAlignment="Top" Width="230" Cursor="Hand">
+            <Canvas.Background>
+                <SolidColorBrush Color="White"/>
+            </Canvas.Background>
+            <Button Name="btnVinhos"  Style="{StaticResource btnAreas}" Click="btnVinhos_Click"/>
+            <Image Source=".\Imgs\bottles.png" Style="{StaticResource imgArea}"
+                               Canvas.Left="52"/>
+            <TextBlock Style="{StaticResource txtTitle}" Text="Vinhos" />
+            <TextBox Style="{StaticResource txtDescricaoBlack}"
+                                 Text="Nesta área você poderá gerenciar os usuários, cadastrar novos, listar e deletar!"
+                                 />
+        </Canvas>
+        <Canvas Grid.Column="4" HorizontalAlignment="Left" Height="341" Margin="0.4,10,-0.2,0" VerticalAlignment="Top" Width="231" Cursor="Hand">
+            <Canvas.Background>
+                <SolidColorBrush Color="White"/>
+            </Canvas.Background>
+            <Button Name="btnFavoritos"  Style="{StaticResource btnAreas}"/>
+            <Image Source=".\Imgs\favorites.png" Style="{StaticResource imgArea}"
+                               Canvas.Left="52"/>
+            <TextBlock Style="{StaticResource txtTitle}" Text="Favoritos" />
+            <TextBox Style="{StaticResource txtDescricaoBlack}"
+                                 Text="Nesta área você poderá gerenciar os usuários, cadastrar novos, listar e deletar!"
+                                 />
+        </Canvas>
+    </Grid>
+</UserControl>

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Controllers
 {
-    class UserController : IBaseController<User>
+    public class UserController : IBaseController<User>
     {
 
         private Context context = new Context();
@@ -45,7 +45,7 @@ namespace Controllers
 
         public ICollection<User> ListByName(string name)
         {
-            return context.Users.Where(user => user.Nome == name).ToList();
+            return context.Users.Where(user => user.Nome.Contains(name)).ToList();
         }
 
         public User SearchById(int id)

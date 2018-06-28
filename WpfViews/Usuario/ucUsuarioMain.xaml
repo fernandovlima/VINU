@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="WpfViews.Usuario.ucUsuarioMain"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfViews.Usuario"
+             mc:Ignorable="d">
+    <Grid>
+        
+        <TabControl HorizontalAlignment="Left" 
+                    Height="440" 
+                    Margin="10,10,0,-0.4" 
+                    VerticalAlignment="Top" 
+                    Width="780"
+                    SelectionChanged="TabControl_SelectionChanged">
+            <TabItem Header="Cadastrar"
+                     Name="cadastrarUser"
+                     Style="{StaticResource subMenu}" >
+                <local:ucUsuarioCadastro />
+            </TabItem>
+            <TabItem Header="Listar"
+                     Name="listarUsers"
+                     Style="{StaticResource subMenu}">
+                <local:ucUsuarioLista/>
+            </TabItem>
+            <TabItem Header="Buscar"
+                     Name="buscarUser"
+                     Style="{StaticResource subMenu}">
+                <local:ucUsuarioBusca />
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</UserControl>
