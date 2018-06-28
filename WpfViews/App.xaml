@@ -5,147 +5,159 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
 
+        <!-- Material Design - Nuget Package -->
+        <ResourceDictionary >
+
+
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
         <Style x:Key="GridStyle" TargetType="{x:Type Grid}">
             
-        </Style>
+            </Style>
 
-        <Style TargetType="TabItem">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="TabItem">
-                        <TextBlock Name="texto" FontSize="20" Padding="10,0" Foreground="LightGray">
-                                    <ContentPresenter x:Name="ContentSite"
-                                        VerticalAlignment="Center"
-                                        HorizontalAlignment="Center"
-                                        ContentSource="Header"
-                                        Margin="10,2" />
-                        </TextBlock>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsSelected" Value="True">
-                                <Setter TargetName="texto" Property="Opacity" Value="1" />
-                                <Setter TargetName="texto" Property="Background" Value="{x:Null}" />
-                            </Trigger>
-                            <Trigger Property="IsSelected" Value="False">
-                                <Setter TargetName="texto" Property="Opacity" Value="0.3" />
-                                <Setter TargetName="texto" Property="Background" Value="{x:Null}" />
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
+            <Style TargetType="TabItem">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="TabItem">
+                            <TextBlock Name="texto" FontSize="20" Padding="10,0" Foreground="LightGray">
+                                        <ContentPresenter x:Name="ContentSite"
+                                            VerticalAlignment="Center"
+                                            HorizontalAlignment="Center"
+                                            ContentSource="Header"
+                                            Margin="10,2" />
+                            </TextBlock>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter TargetName="texto" Property="Opacity" Value="1" />
+                                    <Setter TargetName="texto" Property="Background" Value="{x:Null}" />
+                                </Trigger>
+                                <Trigger Property="IsSelected" Value="False">
+                                    <Setter TargetName="texto" Property="Opacity" Value="0.3" />
+                                    <Setter TargetName="texto" Property="Background" Value="{x:Null}" />
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
 
-        <Style TargetType="Grid">
-            <!-- Setter Property="Background" Value="#222"/ -->
-        </Style>
-        <Style x:Key="subMenu" TargetType="TabItem">
-            <Setter Property="FontSize" Value="10" />
-            <Setter Property="Background" Value="Transparent" />
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="TabItem">
-                        <TextBlock Name="subMenuText" FontSize="14" Padding="5,0" Foreground="LightGray">
-                                    <ContentPresenter x:Name="ContentSite"
-                                        VerticalAlignment="Center"
-                                        HorizontalAlignment="Center"
-                                        ContentSource="Header"
-                                        Margin="5,2" />
-                        </TextBlock>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsSelected" Value="True">
-                                <Setter TargetName="subMenuText" Property="Opacity" Value="1" />
-                                <Setter TargetName="subMenuText" Property="Background" Value="{x:Null}" />
-                            </Trigger>
-                            <Trigger Property="IsSelected" Value="False">
-                                <Setter Property="Opacity" Value="0.3" />
-                                <Setter Property="Background" Value="{x:Null}" />
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
+            <Style TargetType="Grid">
+                <!-- Setter Property="Background" Value="#222"/ -->
+            </Style>
+            <Style x:Key="subMenu" TargetType="TabItem">
+                <Setter Property="FontSize" Value="10" />
+                <Setter Property="Background" Value="Transparent" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="TabItem">
+                            <TextBlock Name="subMenuText" FontSize="14" Padding="5,0" Foreground="LightGray">
+                                        <ContentPresenter x:Name="ContentSite"
+                                            VerticalAlignment="Center"
+                                            HorizontalAlignment="Center"
+                                            ContentSource="Header"
+                                            Margin="5,2" />
+                            </TextBlock>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter TargetName="subMenuText" Property="Opacity" Value="1" />
+                                    <Setter TargetName="subMenuText" Property="Background" Value="{x:Null}" />
+                                </Trigger>
+                                <Trigger Property="IsSelected" Value="False">
+                                    <Setter Property="Opacity" Value="0.3" />
+                                    <Setter Property="Background" Value="{x:Null}" />
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
 
-        </Style>
+            </Style>
 
-        <Style x:Key="btnAreas" TargetType="Button">
-            <Setter Property="Background" Value="Transparent" />
-            <Setter Property="Width" Value="230" />
-            <Setter Property="Height" Value="341" />
-        </Style>
-        <Style x:Key="imgArea" TargetType="Image">
-            <Setter Property="Width" Value="132" />
-            <Setter Property="Height" Value="132" />
-            <Setter Property="VerticalAlignment" Value="Top" />
-            <Setter Property="HorizontalAlignment" Value="Center" />
-            <Setter Property="Canvas.Top" Value="10" />
-        </Style>
-        <Style x:Key="txtTitle" TargetType="TextBlock">
-            <Setter Property="HorizontalAlignment" Value="Center" />
-            <Setter Property="Foreground" Value="Black" />
-            <Setter Property="TextWrapping" Value="Wrap" />
-            <Setter Property="Width" Value="190" />
-            <Setter Property="TextAlignment" Value="Center" />
-            <Setter Property="FontSize" Value="16" />
-            <Setter Property="VerticalAlignment" Value="Top" />
-            <Setter Property="TextDecorations" Value="{x:Null}" />
-            <Setter Property="Canvas.Top" Value="170" />
-            <Setter Property="Canvas.Left" Value="20" />
-            <Setter Property="Panel.ZIndex" Value="-1" />
-        </Style>
-        <Style x:Key="txtDescricaoBlack" TargetType="TextBox">
-            <Setter Property="Foreground" Value="#646464" />
-            <Setter Property="FontSize" Value="12" />
-            <Setter Property="VerticalAlignment" Value="Top" />
-            <Setter Property="Width" Value="190" />
-            <Setter Property="Height" Value="100" />
-            <Setter Property="Canvas.Left" Value="20" />
-            <Setter Property="Canvas.Top" Value="205" />
-            <Setter Property="TextWrapping" Value="Wrap" />
-            <Setter Property="HorizontalAlignment" Value="Left" />
-            <Setter Property="BorderThickness" Value="0" />
-            <Setter Property="Selector.IsEnabled" Value="False" />
-            <Setter Property="Panel.ZIndex" Value="-1" />
-        </Style>
+            <Style x:Key="btnAreas" TargetType="Button">
+                <Setter Property="Background" Value="Transparent" />
+                <Setter Property="Width" Value="230" />
+                <Setter Property="Height" Value="341" />
+            </Style>
+            <Style x:Key="imgArea" TargetType="Image">
+                <Setter Property="Width" Value="132" />
+                <Setter Property="Height" Value="132" />
+                <Setter Property="VerticalAlignment" Value="Top" />
+                <Setter Property="HorizontalAlignment" Value="Center" />
+                <Setter Property="Canvas.Top" Value="10" />
+            </Style>
+            <Style x:Key="txtTitle" TargetType="TextBlock">
+                <Setter Property="HorizontalAlignment" Value="Center" />
+                <Setter Property="Foreground" Value="Black" />
+                <Setter Property="TextWrapping" Value="Wrap" />
+                <Setter Property="Width" Value="190" />
+                <Setter Property="TextAlignment" Value="Center" />
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="VerticalAlignment" Value="Top" />
+                <Setter Property="TextDecorations" Value="{x:Null}" />
+                <Setter Property="Canvas.Top" Value="170" />
+                <Setter Property="Canvas.Left" Value="20" />
+                <Setter Property="Panel.ZIndex" Value="-1" />
+            </Style>
+            <Style x:Key="txtDescricaoBlack" TargetType="TextBox">
+                <Setter Property="Foreground" Value="#646464" />
+                <Setter Property="FontSize" Value="12" />
+                <Setter Property="VerticalAlignment" Value="Top" />
+                <Setter Property="Width" Value="190" />
+                <Setter Property="Height" Value="100" />
+                <Setter Property="Canvas.Left" Value="20" />
+                <Setter Property="Canvas.Top" Value="205" />
+                <Setter Property="TextWrapping" Value="Wrap" />
+                <Setter Property="HorizontalAlignment" Value="Left" />
+                <Setter Property="BorderThickness" Value="0" />
+                <Setter Property="Selector.IsEnabled" Value="False" />
+                <Setter Property="Panel.ZIndex" Value="-1" />
+            </Style>
 
-        <Style x:Key="labelForm" TargetType="Label">
-            <Setter Property="Foreground" Value="White" />
-            <Setter Property="FontSize" Value="12" />
-            <Setter Property="VerticalAlignment" Value="Top" />
-            <Setter Property="HorizontalAlignment" Value="Right" />
-            <Setter Property="Selector.IsEnabled" Value="False" />
-        </Style>
+            <Style x:Key="labelForm" TargetType="Label">
+                <Setter Property="Foreground" Value="White" />
+                <Setter Property="FontSize" Value="12" />
+                <Setter Property="VerticalAlignment" Value="Top" />
+                <Setter Property="HorizontalAlignment" Value="Right" />
+                <Setter Property="Selector.IsEnabled" Value="False" />
+            </Style>
 
         
-        <!-- Placeholder -->
-        <Style x:Key="placeHolder" TargetType="{x:Type TextBox}" BasedOn="{StaticResource {x:Type TextBox}}">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type TextBox}">
-                        <Grid>
-                            <TextBox Text="{Binding Path=Text,
-                                                RelativeSource={RelativeSource TemplatedParent}, 
-                                                Mode=TwoWay,
-                                                UpdateSourceTrigger=PropertyChanged}"
-                                 x:Name="textSource" 
-                                 Background="Transparent" 
-                                 Panel.ZIndex="2" />
-                            <TextBox Text="{TemplateBinding Tag}" Background="{TemplateBinding Background}" Panel.ZIndex="1">
-                                <TextBox.Style>
-                                    <Style TargetType="{x:Type TextBox}">
-                                        <Setter Property="Foreground" Value="Transparent"/>
-                                        <Style.Triggers>
-                                            <DataTrigger Binding="{Binding Path=Text, Source={x:Reference textSource}}" Value="">
-                                                <Setter Property="Foreground" Value="LightGray"/>
-                                            </DataTrigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </TextBox.Style>
-                            </TextBox>
-                        </Grid>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
+            <!-- Placeholder -->
+            <Style x:Key="placeHolder" TargetType="{x:Type TextBox}" BasedOn="{StaticResource {x:Type TextBox}}">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type TextBox}">
+                            <Grid>
+                                <TextBox Text="{Binding Path=Text,
+                                                    RelativeSource={RelativeSource TemplatedParent}, 
+                                                    Mode=TwoWay,
+                                                    UpdateSourceTrigger=PropertyChanged}"
+                                     x:Name="textSource" 
+                                     Background="Transparent" 
+                                     Panel.ZIndex="2" />
+                                <TextBox Text="{TemplateBinding Tag}" Background="{TemplateBinding Background}" Panel.ZIndex="1">
+                                    <TextBox.Style>
+                                        <Style TargetType="{x:Type TextBox}">
+                                            <Setter Property="Foreground" Value="Transparent"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding Path=Text, Source={x:Reference textSource}}" Value="">
+                                                    <Setter Property="Foreground" Value="LightGray"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBox.Style>
+                                </TextBox>
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
 
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

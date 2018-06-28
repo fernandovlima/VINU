@@ -40,6 +40,12 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="MaterialDesignColors, Version=1.1.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignColors.1.1.2\lib\net45\MaterialDesignColors.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=2.4.0.1044, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.2.4.0.1044\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
@@ -76,6 +82,15 @@
     <Compile Include="Usuario\ucUsuarioMain.xaml.cs">
       <DependentUpon>ucUsuarioMain.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Vinho\ucRatingStar.xaml.cs">
+      <DependentUpon>ucRatingStar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vinho\ucVinhoCadastro.xaml.cs">
+      <DependentUpon>ucVinhoCadastro.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vinho\ucVinhoMain.xaml.cs">
+      <DependentUpon>ucVinhoMain.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -105,6 +120,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Usuario\ucUsuarioMain.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vinho\ucRatingStar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vinho\ucVinhoCadastro.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vinho\ucVinhoMain.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

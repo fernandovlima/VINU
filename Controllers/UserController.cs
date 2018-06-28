@@ -53,7 +53,7 @@ namespace Controllers
             return context.Users.Find(id);
         }
 
-        public void AddWineToList(int userId, Vinho vinho)
+        public void AddWineToList(int userId, Wine vinho)
         {           
 
             if (context.FavoriteWines.Find(userId, vinho.VinhoID) == null)

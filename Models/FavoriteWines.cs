@@ -20,6 +20,6 @@ namespace Models
         public User UserID { get; set; }
 
         [Required]
-        public Vinho WineID { get; set; }
+        public Wine WineID { get; set; }
     }
 }
