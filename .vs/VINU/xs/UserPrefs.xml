@@ -1,9 +1,11 @@
 ﻿<Properties StartupConfiguration="{05528624-DC23-4BB7-AB22-3076684CD0D7}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Models/AtributosVinho.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Controllers/VinhoController.cs">
     <Files>
       <File FileName="Controllers/UserController.cs" Line="48" Column="34" />
-      <File FileName="Controllers/VinhoController.cs" Line="31" Column="3" />
-      <File FileName="Models/AtributosVinho.cs" Line="14" Column="11" />
+      <File FileName="Controllers/VinhoController.cs" Line="38" Column="74" />
+      <File FileName="Models/AtributosVinho.cs" Line="16" Column="6" />
+      <File FileName="Models/Vinho.cs" Line="22" Column="1" />
+      <File FileName="Controllers/AtributosVinhoController.cs" Line="52" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -12,10 +14,9 @@
             <Node name="Controllers" expanded="True">
               <Node name="Base" expanded="True" />
               <Node name="DAL" expanded="True" />
+              <Node name="VinhoController.cs" selected="True" />
             </Node>
-            <Node name="Models" expanded="True">
-              <Node name="AtributosVinho.cs" selected="True" />
-            </Node>
+            <Node name="Models" expanded="True" />
           </Node>
         </State>
       </Pad>

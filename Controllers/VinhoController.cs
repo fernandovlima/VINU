@@ -54,5 +54,10 @@ namespace Controllers
 		{
 			return context.Wines.Find(id);
 		}
+
+		public ICollection<Vinho> ListWinesByAtribute(string atributo)
+		{
+			return null;
+		}
 	}
 }
