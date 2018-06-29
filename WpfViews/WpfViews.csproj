@@ -82,6 +82,7 @@
     <Compile Include="Usuario\ucUsuarioMain.xaml.cs">
       <DependentUpon>ucUsuarioMain.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Utils\Masking.cs" />
     <Compile Include="Vinho\ucRatingStar.xaml.cs">
       <DependentUpon>ucRatingStar.xaml</DependentUpon>
     </Compile>

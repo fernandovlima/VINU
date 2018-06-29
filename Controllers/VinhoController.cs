@@ -47,7 +47,7 @@ namespace Controllers
 
 		public ICollection<Wine> ListByName(string name)
 		{
-			return context.Wines.Where(vinho => vinho.NomeVinho == name).ToList();
+			return context.Wines.Where(vinho => vinho.NomeVinho.Contains(name)).ToList();
 		}
 
 		public Wine SearchById(int id)
