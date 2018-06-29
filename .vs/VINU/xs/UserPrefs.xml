@@ -7,20 +7,6 @@
       <File FileName="Models/Vinho.cs" Line="22" Column="1" />
       <File FileName="Controllers/AtributosVinhoController.cs" Line="52" Column="1" />
     </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State name="__root__">
-          <Node name="Vinu" expanded="True">
-            <Node name="Controllers" expanded="True">
-              <Node name="Base" expanded="True" />
-              <Node name="DAL" expanded="True" />
-              <Node name="VinhoController.cs" selected="True" />
-            </Node>
-            <Node name="Models" expanded="True" />
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.Controllers PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.ItemProperties.Models PreferredExecutionTarget="MonoDevelop.Default" />
