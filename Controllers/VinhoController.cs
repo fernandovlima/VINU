@@ -7,15 +7,15 @@ using Models;
 
 namespace Controllers
 {
-	public class VinhoController : IBaseController<Vinho>
+	public class WineController : IBaseController<Wine>
     {
 		private Context context = new Context();
 
-        public VinhoController()
+        public WineController()
         {
         }
 
-		public void AddNew(Vinho entity)
+		public void AddNew(Wine entity)
 		{
 			context.Wines.Add(entity);
 			context.SaveChanges();
@@ -23,7 +23,7 @@ namespace Controllers
 
 		public void Delete(int id)
 		{
-			Vinho vinho = SearchById(id);
+			Wine vinho = SearchById(id);
 
 			if( vinho != null)
 			{
@@ -33,24 +33,24 @@ namespace Controllers
 			}
 		}
 
-		public void Edit(Vinho entity)
+		public void Edit(Wine entity)
 		{
 			context.Entry(entity).State = System.Data.Entity.EntityState.Modified;
 			context.SaveChanges();
 
 		}
 
-		public ICollection<Vinho> ListAll()
+		public ICollection<Wine> ListAll()
 		{
 			return context.Wines.ToList();
 		}
 
-		public ICollection<Vinho> ListByName(string name)
+		public ICollection<Wine> ListByName(string name)
 		{
-			return context.Wines.Where(vinho => vinho.NomeVinho == name).ToList();
+			return context.Wines.Where(vinho => vinho.NomeVinho.Contains(name)).ToList();
 		}
 
-		public Vinho SearchById(int id)
+		public Wine SearchById(int id)
 		{
 			return context.Wines.Find(id);
 		}

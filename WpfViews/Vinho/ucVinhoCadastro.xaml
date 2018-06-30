@@ -1,0 +1,119 @@
+﻿<UserControl x:Class="WpfViews.Vinho.ucVinhoCadastro"
+             xmlns:b= "clr-namespace:WpfViews.Utils"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfViews.Vinho"
+             mc:Ignorable="d"
+             xmlns:sysglb="clr-namespace:System.Globalization;assembly=mscorlib"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+                    xmlns:converters="clr-namespace:MaterialDesignThemes.Wpf.Converters"
+                    xmlns:controlzEx="clr-namespace:ControlzEx"
+             >
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*" />
+            <ColumnDefinition Width="5*" />
+        </Grid.ColumnDefinitions>
+        <StackPanel Margin="10 0 40 0" Width="auto">
+            <materialDesign:ColorZone Mode="Standard" Padding="8 4 8 4" CornerRadius="2" Panel.ZIndex="1"
+                                   Margin="8"
+                                   materialDesign:ShadowAssist.ShadowDepth="Depth1">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    
+                    <TextBox Name="txtBuscaVinho"
+                             Grid.Column="0" 
+                             Margin="8 0 0 0" 
+                             materialDesign:HintAssist.Hint="Buscar Vinho"
+                             materialDesign:TextFieldAssist.DecorationVisibility="Hidden" 
+                             BorderThickness="0"
+                             MinWidth="150" 
+                             VerticalAlignment="Center" KeyDown="txtBuscaVinho_KeyDown" TextChanged="txtBuscaVinho_TextChanged" />
+                    
+                    <Button Name="btnBuscaVinho"
+                            Style="{DynamicResource MaterialDesignToolButton}" 
+                            Grid.Column="1" 
+                            Margin="8 0 0 0" Click="btnBuscaVinho_Click">
+                        <materialDesign:PackIcon Kind="Magnify" Opacity=".56" />
+                    </Button>
+                </Grid>
+            </materialDesign:ColorZone>
+            <ScrollViewer Grid.Column="0" Width="auto" Height="300" VerticalAlignment="Top" Margin="8 10 0 0" >
+                <DataGrid Name="dgListaVinhos"
+                          AutoGenerateColumns="False"
+                          SelectionMode="Single" 
+                          CanUserAddRows="false" SelectionChanged="dgListaVinhos_SelectionChanged">
+
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="#ID" Width="1*"
+                      Binding="{Binding VinhoID}" IsReadOnly="true" />
+                        <DataGridTextColumn Header="Vinho"
+                      Binding="{Binding NomeVinho}" Width="2.2*" IsReadOnly="true" />
+                        <DataGridTextColumn Header="Nota"
+                      Binding="{Binding Score}" Width="1*" IsReadOnly="true" />
+                        <DataGridTextColumn Header="Valor"
+                      Binding="{Binding Valor, StringFormat='R$ {0}'}" Width="1*" IsReadOnly="true" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </ScrollViewer>
+        </StackPanel>
+        
+        <StackPanel Grid.Column="1" Width="auto" HorizontalAlignment="Center">
+            <TextBlock Name="txtTitulo" FontSize="28" Margin="8 0 0 0">Cadastro de Vinho</TextBlock>
+            <TextBlock Name="txtVinhoId" Visibility="Hidden" Height="0" />
+            <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" Name="txtNomeProduto" Margin="0 20 0 0">
+                <materialDesign:HintAssist.Hint>
+                    <StackPanel Orientation="Horizontal" Margin="-2 0 0 0">
+                        <materialDesign:PackIcon Kind="GlassTulip" />
+                        <TextBlock>Nome do Vinho</TextBlock>
+                    </StackPanel>
+                </materialDesign:HintAssist.Hint>
+            </TextBox>                
+            <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" Name="txtValorProduto" Margin="0,5" GotFocus="txtValorProduto_GotFocus" LostFocus="txtValorProduto_LostFocus">
+                <materialDesign:HintAssist.Hint>
+                    <StackPanel Orientation="Horizontal" Margin="-2 0 0 0">
+                        <materialDesign:PackIcon Kind="Coin" />
+                        <TextBlock Text="{Binding Price,
+                                            UpdateSourceTrigger=PropertyChanged,
+                                            StringFormat='#,00'}">R$</TextBlock>
+                    </StackPanel>
+                </materialDesign:HintAssist.Hint>
+            </TextBox>
+
+            <StackPanel Margin="0 16 0 0" Orientation="Horizontal">
+                <materialDesign:RatingBar Value="3" x:Name="rbNotaVinho" />
+                <TextBlock Text="{Binding ElementName=rbNotaVinho, Path=Value, StringFormat=Nota: {0}}" VerticalAlignment="Top" Margin="10,2,0,0" />
+                <TextBlock Text="{Binding ElementName=CustomRatingBar, Path=Value, StringFormat=Nota: {0}}" VerticalAlignment="Top" Margin="10,2,0,0" />
+            </StackPanel>
+
+            <Button Name="btnCadastrarVinho" Margin="8 20 0 0" 
+                    Style="{StaticResource MaterialDesignRaisedAccentButton}"
+                    Click="btnCadastrarVinho_Click">
+                Novo
+            </Button>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Name="btnAtualizarVinho" Margin="8 20 40 0" 
+                    Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                        Visibility="Hidden"
+                    Click="btnAtualizarVinho_Click">
+                    Atualizar
+                </Button>
+
+                <Button Name="btnDeletarVinho" Margin="8 20 0 0" 
+                    Style="{StaticResource MaterialDesignRaisedLightButton}" 
+                        Visibility="Hidden" Click="btnDeletarVinho_Click">
+                    Deletar
+                </Button>
+            </StackPanel>
+            
+
+        </StackPanel>
+
+    </Grid>
+</UserControl>

@@ -34,7 +34,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignColors, Version=1.1.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignColors.1.1.2\lib\net45\MaterialDesignColors.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=2.4.0.1044, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.2.4.0.1044\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -54,6 +67,31 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ucWelcome.xaml.cs">
+      <DependentUpon>ucWelcome.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Usuario\ucUsuarioBusca.xaml.cs">
+      <DependentUpon>ucUsuarioBusca.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Usuario\ucUsuarioCadastro.xaml.cs">
+      <DependentUpon>ucUsuarioCadastro.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Usuario\ucUsuarioLista.xaml.cs">
+      <DependentUpon>ucUsuarioLista.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Usuario\ucUsuarioMain.xaml.cs">
+      <DependentUpon>ucUsuarioMain.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\Masking.cs" />
+    <Compile Include="Vinho\ucRatingStar.xaml.cs">
+      <DependentUpon>ucRatingStar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vinho\ucVinhoCadastro.xaml.cs">
+      <DependentUpon>ucVinhoCadastro.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vinho\ucVinhoMain.xaml.cs">
+      <DependentUpon>ucVinhoMain.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -66,6 +104,38 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="ucWelcome.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Usuario\ucUsuarioBusca.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Usuario\ucUsuarioCadastro.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Usuario\ucUsuarioLista.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Usuario\ucUsuarioMain.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vinho\ucRatingStar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vinho\ucVinhoCadastro.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vinho\ucVinhoMain.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -85,6 +155,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -92,6 +163,25 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imgs\drunked.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imgs\bottles.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imgs\favorites.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Controllers\Controllers.csproj">
+      <Project>{05528624-dc23-4bb7-ab22-3076684cd0d7}</Project>
+      <Name>Controllers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Models\Models.csproj">
+      <Project>{dfde6129-179b-44c5-81b3-aa54f9b1e60a}</Project>
+      <Name>Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

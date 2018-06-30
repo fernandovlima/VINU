@@ -21,7 +21,7 @@ namespace Controllers.DAL
 
         public DbSet<User> Users { set; get; }
 
-        public DbSet<Vinho> Wines { set; get; }
+        public DbSet<Wine> Wines { set; get; }
 
         public DbSet<FavoriteWines> FavoriteWines { set; get; }
 
