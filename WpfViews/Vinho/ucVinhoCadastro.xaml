@@ -17,7 +17,7 @@
             <ColumnDefinition Width="5*" />
             <ColumnDefinition Width="5*" />
         </Grid.ColumnDefinitions>
-        <StackPanel>
+        <StackPanel Margin="10 0 40 0" Width="auto">
             <materialDesign:ColorZone Mode="Standard" Padding="8 4 8 4" CornerRadius="2" Panel.ZIndex="1"
                                    Margin="8"
                                    materialDesign:ShadowAssist.ShadowDepth="Depth1">
@@ -28,23 +28,23 @@
                     </Grid.ColumnDefinitions>
                     
                     <TextBox Name="txtBuscaVinho"
-                             Grid.Column="1" 
+                             Grid.Column="0" 
                              Margin="8 0 0 0" 
                              materialDesign:HintAssist.Hint="Buscar Vinho"
                              materialDesign:TextFieldAssist.DecorationVisibility="Hidden" 
                              BorderThickness="0"
                              MinWidth="150" 
-                             VerticalAlignment="Center" />
+                             VerticalAlignment="Center" KeyDown="txtBuscaVinho_KeyDown" TextChanged="txtBuscaVinho_TextChanged" />
                     
                     <Button Name="btnBuscaVinho"
                             Style="{DynamicResource MaterialDesignToolButton}" 
-                            Grid.Column="2" 
+                            Grid.Column="1" 
                             Margin="8 0 0 0" Click="btnBuscaVinho_Click">
                         <materialDesign:PackIcon Kind="Magnify" Opacity=".56" />
                     </Button>
                 </Grid>
             </materialDesign:ColorZone>
-            <ScrollViewer Grid.Column="0" Width="auto" Height="auto" VerticalAlignment="Top" Margin="10 10 0 0" >
+            <ScrollViewer Grid.Column="0" Width="auto" Height="300" VerticalAlignment="Top" Margin="8 10 0 0" >
                 <DataGrid Name="dgListaVinhos"
                           AutoGenerateColumns="False"
                           SelectionMode="Single" 
@@ -54,7 +54,7 @@
                         <DataGridTextColumn Header="#ID" Width="1*"
                       Binding="{Binding VinhoID}" IsReadOnly="true" />
                         <DataGridTextColumn Header="Vinho"
-                      Binding="{Binding NomeVinho}" Width="3*" IsReadOnly="true" />
+                      Binding="{Binding NomeVinho}" Width="2.2*" IsReadOnly="true" />
                         <DataGridTextColumn Header="Nota"
                       Binding="{Binding Score}" Width="1*" IsReadOnly="true" />
                         <DataGridTextColumn Header="Valor"
@@ -65,9 +65,9 @@
         </StackPanel>
         
         <StackPanel Grid.Column="1" Width="auto" HorizontalAlignment="Center">
-            <TextBlock FontSize="28" Margin="8 0 0 0">Cadastro de Vinho</TextBlock>
+            <TextBlock Name="txtTitulo" FontSize="28" Margin="8 0 0 0">Cadastro de Vinho</TextBlock>
             <TextBlock Name="txtVinhoId" Visibility="Hidden" Height="0" />
-            <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" Name="txtNomeProduto" Margin="0,5">
+            <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" Name="txtNomeProduto" Margin="0 20 0 0">
                 <materialDesign:HintAssist.Hint>
                     <StackPanel Orientation="Horizontal" Margin="-2 0 0 0">
                         <materialDesign:PackIcon Kind="GlassTulip" />
@@ -75,7 +75,7 @@
                     </StackPanel>
                 </materialDesign:HintAssist.Hint>
             </TextBox>                
-            <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" Name="txtValorProduto" Margin="0,5">
+            <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" Name="txtValorProduto" Margin="0,5" GotFocus="txtValorProduto_GotFocus" LostFocus="txtValorProduto_LostFocus">
                 <materialDesign:HintAssist.Hint>
                     <StackPanel Orientation="Horizontal" Margin="-2 0 0 0">
                         <materialDesign:PackIcon Kind="Coin" />

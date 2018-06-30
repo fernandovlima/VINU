@@ -26,6 +26,7 @@ namespace WpfViews.Usuario
     {
 
         UserController uc = new UserController();
+        User user = new User();
         int keepID;
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -72,7 +73,9 @@ namespace WpfViews.Usuario
         {
             try
             {
-                uc.Delete(keepID);
+                DGListaUsuarios.UnselectAllCells();
+
+                uc.Delete(user.UserID);
                 atualizaListaUsuarios();
 
                 //Limpa Campos
@@ -99,8 +102,10 @@ namespace WpfViews.Usuario
         {
             try
             {
+                DGListaUsuarios.UnselectAllCells();
+
                 //Cria usuário para edião
-                User user = uc.SearchById(keepID);
+                user = uc.SearchById(Int32.Parse(txtIdUpdate.Text));
                 user.Nome = txtNomeUpdate.Text;
                 user.Login = txtLoginUpdate.Text;
                 user.Senha = txtPasswordUpdate.Password;
@@ -112,7 +117,7 @@ namespace WpfViews.Usuario
                 limparCamposUpdate();
 
                 //Atualiza Lista
-                DGListaUsuarios.Items.Refresh();
+                atualizaListaUsuarios();
             }
             catch (Exception ex)
             {
@@ -141,10 +146,10 @@ namespace WpfViews.Usuario
         {
 
             //myInt.ToString()
-            User user = (DGListaUsuarios.SelectedCells[0].Item != null) ? (User)DGListaUsuarios.SelectedCells[0].Item : new User();
-            if (user.Nome.Length > 0)
+            User tmp = (User)DGListaUsuarios.SelectedItem;
+            if (tmp != null)
             {
-                keepID = user.UserID;
+                user = tmp;
 
                 //preenche os campos para atualizar usuário
                 txtIdUpdate.Text = user.UserID.ToString();

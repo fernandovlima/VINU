@@ -16,12 +16,12 @@
             <TabItem Header="Cadastrar"
                      Name="cadastrarUser"
                      Style="{StaticResource subMenu}" >
-                <local:ucUsuarioCadastro />
+                <local:ucUsuarioCadastro x:Name="tabUsuarioCadastro" />
             </TabItem>
             <TabItem Header="Listar"
                      Name="listarUsers"
                      Style="{StaticResource subMenu}">
-                <local:ucUsuarioLista/>
+                <local:ucUsuarioLista x:Name="tabUsuarioLista"/>
             </TabItem>
             <TabItem Header="Buscar"
                      Name="buscarUser"

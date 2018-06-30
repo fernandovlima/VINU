@@ -15,7 +15,7 @@ namespace Controllers.DAL
             //Database.SetInitializer(new DropCreateDatabaseAlways<Context>());
 
             // Apaga e recria a base de dados se houver alterações nas modelos
-            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<Context>());
+            //Database.SetInitializer(new DropCreateDatabaseIfModelChanges<Context>());
 
         }
 

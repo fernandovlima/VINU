@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
@@ -18,6 +19,8 @@ namespace WpfViews.Vinho
     {
         WineController wc = new WineController();
         Wine wine = new Wine();
+        String tituloArea = "Cadastrar novo Vinho";
+        IEnumerable<Wine> result = new List<Wine>();
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -49,41 +52,52 @@ namespace WpfViews.Vinho
             InitializeComponent();
             ListaWine = wc.ListAll();
             dgListaVinhos.ItemsSource = ListaWine;
-
             dgListaVinhos.CanUserResizeColumns = true;
+
+            txtTitulo.Text = tituloArea;
 
         }
 
         private void btnCadastrarVinho_Click(object sender, RoutedEventArgs e)
         {
-
-            validaCamposCadastro();
-
-            if (wc.SearchById(wine.VinhoID) == null)
+            try
             {
-                //envia o objeto Wine padrão da classe. Esse objeto é inicializado no início da classe
-                preencheDadosVinho(wine, true);
+                txtTitulo.Text = tituloArea;
 
-                wc.AddNew(wine);
+                validaCamposCadastro();
+
+                if (wc.SearchById(wine.VinhoID) == null)
+                {
+                    //envia o objeto Wine padrão da classe. Esse objeto é inicializado no início da classe
+                    preencheDadosVinho(wine, true);
+
+                    wc.AddNew(wine);
 
 
-                //Feedback ao usuário após sucesso no cadastro
-                MessageBoxResult result = MessageBox.Show("Vinho " + txtNomeProduto.Text + " cadastrado com sucesso!");
+                    //Feedback ao usuário após sucesso no cadastro
+                    MessageBoxResult result = MessageBox.Show("Vinho " + txtNomeProduto.Text + " cadastrado com sucesso!");
 
+                }
+                else
+                {
+                    //Remove a seleção da linha na tabela
+                    dgListaVinhos.UnselectAllCells();
+                }
+                //Limpa os campos para novo cadastro.
+                limpaCampos();
+
+                //Atualiza Lista
+                atualizaListaVinhos();
+
+                //Reseta Botões
+                resetaBotoes();
             }
-            else
+            catch (Exception ex)
             {
-                //Remove a seleção da linha na tabela
-                dgListaVinhos.UnselectAllCells();
+
+                MessageBox.Show("Erro ao cadastrar: " + ex.Message);
             }
-            //Limpa os campos para novo cadastro.
-            limpaCampos();
-
-            //Atualiza Lista
-            atualizaListaVinhos();
-
-            //Reseta Botões
-            resetaBotoes();
+           
 
         }
 
@@ -140,6 +154,24 @@ namespace WpfViews.Vinho
 
         }
 
+        //Agrega o R$ ao campo quando focado
+        private void txtValorProduto_GotFocus(object sender, RoutedEventArgs e)
+        {
+            addCurrencyIcon();
+        }
+        //Agrega o R$ ao campo quando perde o foco
+        private void txtValorProduto_LostFocus(object sender, RoutedEventArgs e)
+        {
+            addCurrencyIcon();
+
+        }
+        //Adiciona R$ ao campo de valor 
+        private void addCurrencyIcon()
+        {
+            txtValorProduto.Text = txtValorProduto.Text.Replace("R$ ", "");
+            txtValorProduto.Text = "R$ " + txtValorProduto.Text;
+        }
+
         private void validaCamposCadastro()
         {
             if (string.IsNullOrEmpty(txtNomeProduto.Text))
@@ -154,6 +186,7 @@ namespace WpfViews.Vinho
         {
             txtNomeProduto.Text = txtValorProduto.Text = txtVinhoId.Text = "";
             rbNotaVinho.Value = 3;
+            wine = new Wine();
         }
 
         private void preencheDadosVinho(Wine w, Boolean novo)
@@ -177,6 +210,7 @@ namespace WpfViews.Vinho
 
         private void resetaBotoes()
         {
+            txtTitulo.Text = tituloArea;
             btnCadastrarVinho.Content = "Novo";
             btnAtualizarVinho.Visibility = Visibility.Hidden;
             btnDeletarVinho.Visibility = Visibility.Hidden;
@@ -197,6 +231,7 @@ namespace WpfViews.Vinho
                 txtValorProduto.Text = "R$ " + wine.Valor.ToString();
                 rbNotaVinho.Value = (int)wine.Score;
 
+                txtTitulo.Text = "Atualizar " + wine.NomeVinho;
                 btnCadastrarVinho.Content = "Novo Vinho";
                 btnAtualizarVinho.Visibility = Visibility.Visible;
                 btnDeletarVinho.Visibility = Visibility.Visible;
@@ -210,7 +245,41 @@ namespace WpfViews.Vinho
 
         private void btnBuscaVinho_Click(object sender, RoutedEventArgs e)
         {
+            ICollection<Wine> result = wc.ListByName(txtBuscaVinho.Text);
+            dgListaVinhos.ItemsSource = new List<Wine>();
+            dgListaVinhos.ItemsSource = result;
+        }
 
+        private void txtBuscaVinho_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            
+        }
+
+        private void txtBuscaVinho_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            string produtoBusca = txtBuscaVinho.Text;
+
+            switch (produtoBusca.Length)
+            {
+                case 0:
+                case 1:
+
+                    dgListaVinhos.ItemsSource = new List<Wine>();
+                    dgListaVinhos.ItemsSource = result = wc.ListByName(produtoBusca);
+                    break;
+
+                default:
+
+                    IEnumerable<Wine> buscaFiltro = from w in result
+                                                        where w.NomeVinho.ToLower().Contains(produtoBusca.ToLower())
+                                                        select w;
+
+                   // dgListaVinhos.ItemsSource = new List<Wine>();
+                    dgListaVinhos.ItemsSource = buscaFiltro;
+
+                    break;
+            }
+            
         }
     }
 

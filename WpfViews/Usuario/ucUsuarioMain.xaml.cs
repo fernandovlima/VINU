@@ -10,9 +10,13 @@ namespace WpfViews.Usuario
     /// </summary>
     public partial class ucUsuarioMain : UserControl
     {
+
+        UserController uc = new UserController();        
+
         public ucUsuarioMain()
         {
             InitializeComponent();
+            
 
           //  DGListaUsuarios.ItemsSource = uc.ListAll();
 
@@ -24,7 +28,8 @@ namespace WpfViews.Usuario
 
             if (listarUsers != null && listarUsers.IsSelected)
             {
-               
+                tabUsuarioLista.DGListaUsuarios.ItemsSource = null;
+                tabUsuarioLista.DGListaUsuarios.ItemsSource = uc.ListAll();                
             }
 
             if (buscarUser != null && buscarUser.IsSelected) { }
